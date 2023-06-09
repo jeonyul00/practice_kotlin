@@ -1,7 +1,17 @@
 fun main(args: Array<String>) {
-    println("Hello World!")
+    println("hello world!");
+    println("what your name? ");
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    // val : 상수
+    // readln() : 반환헝 String?, 입력받기
+    val name = readln();
+
+    // trimIndent() : 개행으로 생기는 인덴테이션 제거
+    println("""
+        =========================
+        thank you $name
+        please write the category
+        =========================
+    """.trimIndent())
 }
+
