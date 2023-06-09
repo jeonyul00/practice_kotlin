@@ -1,0 +1,48 @@
+val : 변수의 자료형 : 재할당 금지(상수)
+var : 변수의 자료형 : 재할당 가능
+'' : Char : 문자
+"" : String : 문자열
+
+readln() : 반환헝 String? : 입력값 받기
+isNullOrBlank() : 빈 값이거나 공백인지 boolean 반환
+
+null : 코틀린에서는 nullable type은 함수를 바로 호출할 수 없다.
+    var exNull:String? = null;
+    if(exNull.isEmpty()){
+        ...
+    }
+    exNull.isEmpty() 여기서 오류 뜸
+
+?. : safe call operator : nullable 타입이 null이 아닌 경우-
+    if(exNull?.isEmpty() === true){
+        ...
+    }
+
+?: : elvis operator : if 대신에 사용가능
+    var name = readLine()?:""
+    입력값이 null인 경우 빈 문자열 할당 : js의 ??와 같은 개념
+
+!! : not null assertion : null이 가능한 경우가 존재하더라도 무시
+
+enum : 같은 타입의 여러 상수 정의 가능
+    enum class Color{
+        RED,
+        GREEN,
+        BLUE
+    }
+
+when is : 타입체크
+    when(x){
+        is Int -> print(x+1)
+        is String -> print(x.length + 1)
+        is IntArray -> print(x.sum())
+    }
+
+as : type cast : 타입 변경
+    var num = 1;
+    var text:String = num as String
+
+    // 이러면 에러남 : int를 string으로 변환 불가
+
+as? : 타입변경에 실패하면 null로 할당
+    위의 예시를 실행 할 경우 null 할당
