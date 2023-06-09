@@ -12,6 +12,7 @@ class ShoppingCategory {
         var selectedCategory = readln();
 
         while (selectedCategory.isNullOrBlank()) {
+            println("");
             println("please re write");
             selectedCategory = readln();
         }
@@ -21,8 +22,10 @@ class ShoppingCategory {
         } else {
             // contains : 존재유무를 참거짓으로 반환
             if(categories.contains(selectedCategory)){
-                // todo : 목록 보여주기
+                val shoppingProductList = ShoppingProductList()
+                shoppingProductList.showSelectProducts(selectedCategory);
             }else{
+                println("");
                 println("[$selectedCategory] : this category is not find");
                 showCategories();
             }
