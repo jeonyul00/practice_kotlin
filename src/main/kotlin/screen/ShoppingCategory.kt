@@ -1,0 +1,33 @@
+package screen
+
+class ShoppingCategory {
+
+     fun showCategories() {
+        val categories = arrayOf("fashion", "electronics", "pet supplies");
+        for (category in categories) {
+            println(category);
+        }
+        println("please enter # to go to cart");
+
+        var selectedCategory = readln();
+
+        while (selectedCategory.isNullOrBlank()) {
+            println("please re write");
+            selectedCategory = readln();
+        }
+
+        if (selectedCategory == "#") {
+            // todo : 장바구니 이동
+        } else {
+            // contains : 존재유무를 참거짓으로 반환
+            if(categories.contains(selectedCategory)){
+                // todo : 목록 보여주기
+            }else{
+                println("[$selectedCategory] : this category is not find");
+                showCategories();
+            }
+
+
+        }
+    }
+}

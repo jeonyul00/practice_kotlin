@@ -1,7 +1,44 @@
+프로젝트 디렉토리
+module : 한 번에 컴파일되는 묶음
+    src :
+        main :
+            project :
+                package :
+
+
+
+---
 val : 변수의 자료형 : 재할당 금지(상수)
 var : 변수의 자료형 : 재할당 가능
 '' : Char : 문자
 "" : String : 문자열
+fun : 함수선언
+    선언 방식 1.
+    fun ex(x:Int):Int{
+        return x * 2
+    }
+
+    선언 방식2.
+    fun ex(x:Int): Int = x * 2
+Class : 객체를 정의 : 대문자로 시작
+constrictor : 생성자 : 하나만 있을시 기본 생성자로 매개변수 생략가능
+인스턴스 : 붕어빵... : 클래스로 만든 객체
+최상위 클래스 : Any => 상속 받을 수 있겠군
+    Any클래스의 오버로딩 가능한 함수 => equals(), hashCode(), toString()
+    그럼 클래스 만들때마다 오버라이딩 해야하는가? => ㄴㄴ class 선언할때 앞에 data 키워드 붙이면 됨 : data class : 데이터를 담는 용도의 클래스
+open class로 선언한 클래스만 상속 가능
+abstract class : 추상클래스 : 인스턴스화 불가, 함수 바디없음 : 서브 클래스에서 정의
+interface : 프로퍼티 정의가능, 할당 불가능, 본문이 있는 함수도 정의 가능, 상속 개수 제한 없음
+overriding : 서브클래스에서 탑클래스(open)의 함수를 재정의하는것 : 변수도 가능
+    open class TopClass{
+        open val exValue:Int = 0;
+    }
+
+    class bottomClass:TopClass() {
+        override var exexValue:Int = 1;
+    }
+
+    주의 : val => var 가능, var => val 불가능
 
 readln() : 반환헝 String? : 입력값 받기
 isNullOrBlank() : 빈 값이거나 공백인지 boolean 반환
@@ -46,3 +83,6 @@ as : type cast : 타입 변경
 
 as? : 타입변경에 실패하면 null로 할당
     위의 예시를 실행 할 경우 null 할당
+
+객체 : 식별자, 상태, 행동을 가진 실체
+
