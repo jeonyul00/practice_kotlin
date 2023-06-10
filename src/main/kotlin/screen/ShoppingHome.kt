@@ -3,7 +3,7 @@ package screen
 import LINE
 import extentions.getNotEmptyString
 
-class ShoppingHome {
+class ShoppingHome:Screen() {
 
     fun start(){
         showWelcomeMessage();
@@ -14,6 +14,7 @@ class ShoppingHome {
 
 
     private fun showWelcomeMessage() {
+        ScreenStack.push(this)
         println("hello world! what your name?");
 
         val name = readln().getNotEmptyString()

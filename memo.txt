@@ -107,6 +107,8 @@ enum : 같은 타입의 여러 상수 정의 가능
         GREEN,
         BLUE
     }
+        생성자, 프로퍼티 선언 가능
+
 
 when is : 타입체크
     when(x){
@@ -137,4 +139,11 @@ inner class : 클래스 안의 클래스 : 부머 클래스의 프로퍼티나 �
     // MutableList<int> 타입에서 사용할 수 있는 확장 함수 swap 추가
     var ex = mutableListOf(1,2,3,)
     ex.swap(1)
+
+자료 구조 : 데이터를 효율적으로 접근하고 조작할 수 있도록 만든 구조 : Array 등
+    Stack : 컵
+    Que : 터널
+
+
+
 

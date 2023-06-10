@@ -3,9 +3,10 @@ package screen
 import LINE
 import extentions.getNotEmptyString
 
-class ShoppingCategory {
+class ShoppingCategory :Screen(){
 
      fun showCategories() {
+         ScreenStack.push(this)
         val categories = arrayOf("fashion", "electronics", "pet supplies");
         for (category in categories) {
             LINE
@@ -22,8 +23,8 @@ class ShoppingCategory {
         } else {
             // contains : 존재유무를 참거짓으로 반환
             if(categories.contains(selectedCategory)){
-                val shoppingProductList = ShoppingProductList()
-                shoppingProductList.showSelectProducts(selectedCategory);
+                val shoppingProductList = ShoppingProductList(selectedCategory)
+                shoppingProductList.showSelectProducts()
             }else{
                 println("");
                 println("[$selectedCategory] : this category is not find");
@@ -33,4 +34,6 @@ class ShoppingCategory {
 
         }
     }
+
+
 }

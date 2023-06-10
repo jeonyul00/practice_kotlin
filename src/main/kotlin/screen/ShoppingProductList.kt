@@ -5,7 +5,7 @@ import data.Product
 import extentions.getNotEmptyInt
 import extentions.getNotEmptyString
 
-class ShoppingProductList {
+class ShoppingProductList(private val selectCategory: String) :Screen(){
     private val products = arrayOf(
         Product("fashion", "T-Shirt"),
         Product("fashion", "pants"),
@@ -21,7 +21,8 @@ class ShoppingProductList {
 
 
     // 요청한 카테고리 상품 출력
-    fun showSelectProducts(selectCategory: String){
+    fun showSelectProducts(){
+        ScreenStack.push(this)
         val categoryProducts = categories[selectCategory]
 
         if(!categoryProducts.isNullOrEmpty()){
@@ -34,13 +35,13 @@ class ShoppingProductList {
                 println("${index}. ${value.nameLabel}")
             }
 
-            showCartOption(categoryProducts,selectCategory)
+            showCartOption(categoryProducts)
         }else{
             println("[$selectCategory] : this category is not find");
         }
     }
 
-    private fun showCartOption(categoryProduct:List<Product>,selectCategory:String){
+    private fun showCartOption(categoryProduct:List<Product>){
         println("""
             please enter product number 
         """.trimIndent())
@@ -56,12 +57,17 @@ class ShoppingProductList {
                 val shoppingCart = ShoppingCart()
                 shoppingCart.showCartItems()
             } else if(answer == "*"){
-                showSelectProducts(selectCategory)
+                showSelectProducts()
             }
             else {
-                // todo: 다른 값 입력 시
+                kotlin.run {
+                    println("undefined number in product list please re try")
+                    showSelectProducts()
+                }
+            } ?: kotlin.run {
+                println("undefined number in product list please re try")
+                showSelectProducts()
             }
-
         }
     }
 
