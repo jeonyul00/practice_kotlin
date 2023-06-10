@@ -1,5 +1,6 @@
 package screen
 
+import LINE
 import extentions.getNotEmptyString
 
 class ShoppingHome {
@@ -20,10 +21,10 @@ class ShoppingHome {
         println(
             """
             
-            =========================
+            $LINE
             thank you $name
             please write the category
-            =========================
+            $LINE
                    
         """.trimIndent()
         )

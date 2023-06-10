@@ -1,5 +1,6 @@
 package screen
 
+import LINE
 import extentions.getNotEmptyString
 
 class ShoppingCategory {
@@ -7,9 +8,9 @@ class ShoppingCategory {
      fun showCategories() {
         val categories = arrayOf("fashion", "electronics", "pet supplies");
         for (category in categories) {
-            println("=========================");
+            LINE
             println(category);
-            println("=========================");
+
         }
         println("please enter # to go to cart");
 
