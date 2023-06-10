@@ -20,6 +20,7 @@ fun : 함수선언
 
     선언 방식2.
     fun ex(x:Int): Int = x * 2
+
 Class : 객체를 정의 : 대문자로 시작
 constrictor : 생성자 : 하나만 있을시 기본 생성자로 매개변수 생략가능
 인스턴스 : 붕어빵... : 클래스로 만든 객체
@@ -40,6 +41,45 @@ overriding : 서브클래스에서 탑클래스(open)의 함수를 재정의하�
 
     주의 : val => var 가능, var => val 불가능
 
+Collections : 동일한 타입의 여러 데이터 집합
+    List : 순서를 가진 콜렉션, 인덱스로 원소에 접근 가능
+        listOf(1,2,2) // [1,2,2]
+    Set : 유니크한 원소를 가진 콜렉션
+        setOf(1,2,2) // [1,2]
+    Map : key-value 쌍으로 원소로 관리, 동일한 키에 대해서는 하나의 값만 가짐
+
+    List, Set, Map은 read-only만 가능한 이뮤터블타입 : 생성 시 추가한 값을 수정할 수 없다
+
+    MutableList, MutableSet, MutableList는 이뮤터블 타입으로 수정 가능
+
+    주요 연산기능
+        Retrive : 데이터의 위치 정보 조회
+        Transformation : 데이터 반환값을 변경
+        Filtering : 데이터를 필터링하는 기준을 세우고 그에 맞게 분류
+        Groping : 데이터를 그룹화 할 수 있는 값을 키로 받는 Map타입
+
+object : 객체 선언 키워드 : 프로젝트 전역에서 단일 객체로 사용됨 => 싱글톤 패턴 쓸 때 좋을 듯
+
+    선언 방법 1
+    val exObj = onject{
+        val product = mutableListOf("전자기기", "아이폰")
+        override fun toString() = products.toString()
+    }
+
+    선언 방법 2
+    interface exInterface{
+        fun absFun(view:View)
+    }
+
+    val exValue = object:exInterface{
+        override funabsFun(view:View){
+            ...
+        }
+    }
+
+companion object : 클래스 내부에서 쓰이며, 생성자를 제공하는 경우에 활용? => 외부에서 생성자를 호출할 때 companion objec를 통해서 호출해야만함
+
+const : read-only, getter 생성 못함
 readln() : 반환헝 String? : 입력값 받기
 isNullOrBlank() : 빈 값이거나 공백인지 boolean 반환
 
@@ -85,4 +125,16 @@ as? : 타입변경에 실패하면 null로 할당
     위의 예시를 실행 할 경우 null 할당
 
 객체 : 식별자, 상태, 행동을 가진 실체
+
+Nested class : 클래스 안의 클래스 : 단 부모 클래스의 프로퍼티나 함수 접근 불가
+inner class : 클래스 안의 클래스 : 부머 클래스의 프로퍼티나 함수에 접근 가능
+
+확장 함수 : Extension function : class를 상속받지 않아도 기능을 확장 할 수 있음
+    fun MutableList<int>.swap(index:Int){
+        ...
+    }
+
+    // MutableList<int> 타입에서 사용할 수 있는 확장 함수 swap 추가
+    var ex = mutableListOf(1,2,3,)
+    ex.swap(1)
 

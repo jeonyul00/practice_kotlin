@@ -18,7 +18,8 @@ class ShoppingCategory {
         }
 
         if (selectedCategory == "#") {
-            // todo : 장바구니 이동
+            var shoppingCart = ShoppingCart()
+            shoppingCart.showCartItems()
         } else {
             // contains : 존재유무를 참거짓으로 반환
             if(categories.contains(selectedCategory)){

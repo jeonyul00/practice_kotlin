@@ -1,5 +1,6 @@
 package screen
 
+import data.CartItems
 import data.Product
 
 class ShoppingProductList {
@@ -28,11 +29,37 @@ class ShoppingProductList {
                 """.trimIndent())
 
             for ((index, value) in categoryProducts.withIndex()) {
-                println("${index+1}. ${value.nameLabel}")
+                println("${index}. ${value.nameLabel}")
             }
-
+            showCartOption(categoryProducts,selectCategory)
         }else{
             println("[$selectCategory] : this category is not find");
         }
     }
+
+    private fun showCartOption(categoryProduct:List<Product>,selectCategory:String){
+        println("""
+            please enter product number 
+        """.trimIndent())
+
+        val  selectedIndex = readln()?.toIntOrNull()!!
+        categoryProduct.getOrNull(selectedIndex)?.let { product ->
+            CartItems.addProduct(product)
+            println("=> if you want to go to your shopping cart press \"#\" or if you want to continue shopping, press \"*\"")
+            var answer = readln()
+
+            if(answer == "#"){
+                val shoppingCart = ShoppingCart()
+                shoppingCart.showCartItems()
+            } else if(answer == "*"){
+                showSelectProducts(selectCategory)
+            }
+            else {
+                // todo: 다른 값 입력 시
+            }
+
+        }
+    }
+
+
 }
