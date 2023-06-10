@@ -1,21 +1,19 @@
 package screen
 
+import extentions.getNotEmptyString
+
 class ShoppingCategory {
 
      fun showCategories() {
         val categories = arrayOf("fashion", "electronics", "pet supplies");
         for (category in categories) {
+            println("=========================");
             println(category);
+            println("=========================");
         }
         println("please enter # to go to cart");
 
-        var selectedCategory = readln();
-
-        while (selectedCategory.isNullOrBlank()) {
-            println("");
-            println("please re write");
-            selectedCategory = readln();
-        }
+        val selectedCategory = readln().getNotEmptyString();
 
         if (selectedCategory == "#") {
             var shoppingCart = ShoppingCart()

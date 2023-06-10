@@ -1,5 +1,7 @@
 package screen
 
+import extentions.getNotEmptyString
+
 class ShoppingHome {
 
     fun start(){
@@ -13,7 +15,7 @@ class ShoppingHome {
     private fun showWelcomeMessage() {
         println("hello world! what your name?");
 
-        val name = readln();
+        val name = readln().getNotEmptyString()
 
         println(
             """
