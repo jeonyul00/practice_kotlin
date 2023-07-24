@@ -15,7 +15,7 @@ class ShoppingHome {
 
         val name = readlnOrNull().getNotEmptyString()
 
-        println("******************************")
+        println(LINE_DIVIDER)
 
         println(
             """           

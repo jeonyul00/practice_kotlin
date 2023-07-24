@@ -7,7 +7,7 @@ class ShoppingCategory {
     public fun showCategories() {
         val categories = arrayOf("패션", "전자기기", "반려동물용품")
 
-        println("******************************")
+        println(LINE_DIVIDER)
 
         for (category in categories) {
             println(category)
@@ -19,7 +19,7 @@ class ShoppingCategory {
             """.trimIndent()
         )
 
-        println("******************************")
+        println(LINE_DIVIDER)
 
         val selectedCategory = readlnOrNull().getNotEmptyString()
 

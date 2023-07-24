@@ -26,9 +26,8 @@ class ShoppingProductList {
         val categoryProducts = categories[selectedCategory]
         if(!categoryProducts.isNullOrEmpty()){
             println("""
-                ******************************
+                $LINE_DIVIDER
                 선택하신 $selectedCategory 카테고리 상품입니다.
-                
             """.trimIndent())
 
             categoryProducts.forEachIndexed{index, product ->
@@ -36,7 +35,7 @@ class ShoppingProductList {
             }
 
             showCartOption(categoryProducts,selectedCategory)
-            println("******************************")
+            println(LINE_DIVIDER)
 
         } else{
             showEmptyProductMessage()
@@ -45,9 +44,9 @@ class ShoppingProductList {
 
     private fun showEmptyProductMessage(){
         println("""
-            ******************************
+            $LINE_DIVIDER
             선택한 카테고리의 상품이 없습니다.
-            ******************************
+            $LINE_DIVIDER
         """.trimIndent())
     }
 
