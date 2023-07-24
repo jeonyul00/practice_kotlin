@@ -31,7 +31,8 @@ class ShoppingCategory {
             // todo : 장바구니이동
         } else {
             if(categories.contains(selectedCategory)){
-                // todo : 카테고리 목록 리스트
+                val shoppingProductList = ShoppingProductList()
+                shoppingProductList.showProducts(selectedCategory)
             } else{
                 showErrormessage(selectedCategory)
             }
