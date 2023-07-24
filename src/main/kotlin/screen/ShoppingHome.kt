@@ -1,0 +1,58 @@
+package screen
+
+class ShoppingHome {
+
+    fun start() {
+        showWelcomeMessage()
+        showCategories()
+    }
+
+    private fun showWelcomeMessage() {
+        println("안녕하세요. Shoppi에 오신 것을 환영합니다!")
+        println("쇼핑을 계속 하시려면 이름을 입력해주세요.")
+
+        val name = readlnOrNull()
+        println("******************************")
+
+        println(
+            """           
+                감사합니다. 반갑습니다, $name 님
+                원하시는 카테고리를 입력해주세요.                        
+            """.trimIndent()
+        )
+    }
+
+    private fun showCategories() {
+        val categories = arrayOf("패션", "전자기기", "반려동물용품")
+
+        println("******************************")
+
+        for (category in categories) {
+            println(category)
+        }
+
+        println(
+            """
+                => 장바구니로 이동하시려면 #을 입력해주세요.            
+            """.trimIndent()
+        )
+
+        println("******************************")
+
+        var selectedCategory = readlnOrNull()
+
+        while (selectedCategory.isNullOrBlank()) {
+            println("값을 입력해주세요.")
+            println("******************************")
+            selectedCategory = readlnOrNull()
+        }
+
+        if (selectedCategory == "#") {
+            // todo : 장바구니이동
+        } else {
+            // todo : 카테고리 목록 리스트
+            // todo : 잘못된 값 입력 시 처리
+        }
+    }
+
+}
